@@ -48,21 +48,12 @@ const siteContent = {
 console.log("project wired!");
 
 //nav content//
-
-const serviceNav = document.querySelector("nav a:nth-of-type(1)");
-const productNav = document.querySelector("nav a:nth-of-type(2)");
-const visionNav = document.querySelector("nav a:nth-of-type(3)");
-const featuresNav = document.querySelector("nav a:nth-of-type(4)");
-const aboutNav = document.querySelector("nav a:nth-of-type(5)");
-const contactNav = document.querySelector("nav a:nth-of-type(6)");
-
-serviceNav.textContent = siteContent["nav"]["nav-item-1"];
-productNav.textContent = siteContent["nav"]["nav-item-2"];
-visionNav.textContent = siteContent["nav"]["nav-item-3"];
-featuresNav.textContent = siteContent["nav"]["nav-item-4"];
-aboutNav.textContent = siteContent["nav"]["nav-item-5"];
-contactNav.textContent = siteContent["nav"]["nav-item-6"];
-
+const navLinks = document.querySelectorAll("nav a");
+const navLinkTexts = Object.values(siteContent.nav);
+navLinks.forEach((link, index) => {
+  link.textContent = navLinkTexts[index];
+  link.classList.add("italic");
+});
 //img content//
 const logoImg = document.querySelector("#logo-img");
 logoImg.src = siteContent.images["logo-img"];
@@ -95,7 +86,7 @@ topContent.children[0].children[1].textContent =
 topContent.children[1].children[0].textContent =
   siteContent["main-content"]["about-h4"];
 topContent.children[1].children[1].textContent =
-  siteContent["main-content"]["features-content"];
+  siteContent["main-content"]["about-content"];
 
 //bottom content//
 const bottomContent = document.querySelector(".bottom-content");
@@ -114,3 +105,8 @@ bottomContent.children[2].children[0].textContent =
   siteContent["main-content"]["vision-h4"];
 bottomContent.children[2].children[1].textContent =
   siteContent["main-content"]["vision-content"];
+
+//cta content//
+document.querySelector(".cta .cta-text h1").textContent = siteContent.cta.h1;
+document.querySelector(".cta .cta-text button").textContent =
+  siteContent.cta.button;
